@@ -1,0 +1,78 @@
+{
+    "sourceFile": "css/style.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1731592970164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1731592975543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-<style>\r\n     .img-container {\r\n         text-align: center; \r\n     }\r\n     .img-responsive {\r\n@@ -102,5 +101,4 @@\n     padding: 20px 0; /* Khoảng cách trên và dưới */\r\n     }\r\n \r\n \r\n-</style>\r\n"
+                },
+                {
+                    "date": 1731593771779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n         width: 200px; \r\n         height: auto;\r\n     }\r\n \r\n+    \r\n \r\n     #categories .row {\r\n     display: flex;\r\n     flex-wrap: wrap;\r\n"
+                },
+                {
+                    "date": 1731593777462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,26 @@\n         width: 200px; \r\n         height: auto;\r\n     }\r\n \r\n+    .contact-link {\r\n+        display: flex;\r\n+        align-items: center;\r\n+        color: black;\r\n+        text-decoration: none;\r\n+        transition: color 0.3s, transform 0.3s;\r\n+    }\r\n     \r\n+    .contact-link:hover {\r\n+        color: blue;\r\n+        transform: translateY(-3px);\r\n+    }\r\n+    \r\n+    .contact-icon {\r\n+        width: 30px;\r\n+        height: 30px;\r\n+        margin-right: 5px;\r\n+    }\r\n \r\n     #categories .row {\r\n     display: flex;\r\n     flex-wrap: wrap;\r\n"
+                },
+                {
+                    "date": 1731593795269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         transition: color 0.3s, transform 0.3s;\r\n     }\r\n     \r\n     .contact-link:hover {\r\n-        color: blue;\r\n+        color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n     .contact-icon {\r\n"
+                },
+                {
+                    "date": 1731593889651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,10 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n+    nav-link\r\n+    \r\n     .contact-icon {\r\n         width: 30px;\r\n         height: 30px;\r\n         margin-right: 5px;\r\n"
+                },
+                {
+                    "date": 1731593896286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,12 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n-    nav-link\r\n-    \r\n+    .nav-link {\r\n+        \r\n+    }\r\n+\r\n     .contact-icon {\r\n         width: 30px;\r\n         height: 30px;\r\n         margin-right: 5px;\r\n"
+                },
+                {
+                    "date": 1731593902849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n-    .nav-link {\r\n-        \r\n+    #.nav-link {\r\n+\r\n     }\r\n \r\n     .contact-icon {\r\n         width: 30px;\r\n"
+                },
+                {
+                    "date": 1731593909446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n-    #.nav-link {\r\n+    # .nav-link {\r\n \r\n     }\r\n \r\n     .contact-icon {\r\n"
+                },
+                {
+                    "date": 1731593921359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n-    # .nav-link {\r\n+    #navbar-nav mx-auto .nav-link {\r\n \r\n     }\r\n \r\n     .contact-icon {\r\n"
+                },
+                {
+                    "date": 1731593931540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n-    #navbar-nav mx-auto .nav-link {\r\n+    #navbar-nav mx-auto .nav-link:hover {\r\n \r\n     }\r\n \r\n     .contact-icon {\r\n"
+                },
+                {
+                    "date": 1731593943611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         transform: translateY(-3px);\r\n     }\r\n     \r\n     #navbar-nav mx-auto .nav-link:hover {\r\n-\r\n+        color: rgb(59, 59, 219);\r\n     }\r\n \r\n     .contact-icon {\r\n         width: 30px;\r\n"
+                },
+                {
+                    "date": 1731593964042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,8 @@\n         color: rgb(59, 59, 219);\r\n         transform: translateY(-3px);\r\n     }\r\n     \r\n-    #navbar-nav mx-auto .nav-link:hover {\r\n-        color: rgb(59, 59, 219);\r\n-    }\r\n \r\n     .contact-icon {\r\n         width: 30px;\r\n         height: 30px;\r\n"
+                },
+                {
+                    "date": 1731596284979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,9 @@\n         transform: translateY(-3px);\r\n     }\r\n     \r\n \r\n-    .contact-icon {\r\n-        width: 30px;\r\n-        height: 30px;\r\n-        margin-right: 5px;\r\n-    }\r\n+  -\r\n \r\n     #categories .row {\r\n     display: flex;\r\n     flex-wrap: wrap;\r\n"
+                },
+                {
+                    "date": 1731596292260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,13 @@\n         transform: translateY(-3px);\r\n     }\r\n     \r\n \r\n-  -\r\n+    .contact-icon {\r\n+        width: 30px;\r\n+        height: 30px;\r\n+        margin-right: 5px;\r\n+    }\r\n \r\n     #categories .row {\r\n     display: flex;\r\n     flex-wrap: wrap;\r\n"
+                },
+                {
+                    "date": 1731596303491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,14 +24,8 @@\n         transform: translateY(-3px);\r\n     }\r\n     \r\n \r\n-    .contact-icon {\r\n-        width: 30px;\r\n-        height: 30px;\r\n-        margin-right: 5px;\r\n-    }\r\n-\r\n     #categories .row {\r\n     display: flex;\r\n     flex-wrap: wrap;\r\n     justify-content: space-between;\r\n"
+                }
+            ],
+            "date": 1731592970164,
+            "name": "Commit-0",
+            "content": "<style>\r\n    .img-container {\r\n        text-align: center; \r\n    }\r\n    .img-responsive {\r\n        width: 80px; \r\n        height: auto;\r\n    }\r\n\r\n    .img-services{\r\n        width: 200px; \r\n        height: auto;\r\n    }\r\n\r\n\r\n    #categories .row {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    }\r\n\r\n    #categories .col-md-3 {\r\n        flex: 1 1 10%; \r\n        max-width: 10%;\r\n        box-sizing: border-box;\r\n        padding: 10px; \r\n    }\r\n\r\n    #categories .col-md-3 img {\r\n        width: 80%; \r\n        height: auto;\r\n    }\r\n\r\n    #categories .col-md-3 a {\r\n        display: flex;\r\n        flex-direction: column;\r\n        align-items: center;\r\n        text-align: center;\r\n        color: black; \r\n        text-decoration: none; \r\n    }\r\n\r\n    #categories .col-md-3 a:hover {\r\n        color: gray; \r\n    }\r\n\r\n    #categories .col-md-3 h4 {\r\n        margin: 0;\r\n        font-size: 110%; \r\n    }\r\n\r\n\r\n    #services {\r\n    padding-top: 40px; \r\n    padding-bottom: 40px; \r\n    }\r\n\r\n    #services .row {\r\n        display: flex;\r\n        flex-wrap: wrap;\r\n        justify-content: space-between;\r\n    }\r\n\r\n    #services .col-md-3 {\r\n        background-color: white; \r\n        border-radius: 10px; \r\n        padding: 15px; \r\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); \r\n        margin: 10px; \r\n        flex: 1 1 calc(25% - 20px); \r\n        box-sizing: border-box;\r\n    }\r\n\r\n    #services .col-md-3 img {\r\n        width: 40%; \r\n        height: auto;\r\n        margin-bottom: 10px; \r\n    }\r\n\r\n    #services h5 {\r\n        font-size: 1.1em;\r\n        margin-bottom: 8px; \r\n    }\r\n\r\n    #services p {\r\n        font-size: 0.85em; \r\n    }\r\n\r\n    /* hiệu ứng chuyển đổi */\r\n    #services .col-md-3 {\r\n    transition: transform 0.3s, box-shadow 0.3s; \r\n    }\r\n\r\n    #services .col-md-3:hover {\r\n        transform: translateY(-5px); /*di chuyển nhích lên*/\r\n        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /*Bóng đậm*/\r\n    }\r\n\r\n    #footer {\r\n    background-color: #f8f9fa; \r\n    width: 100%;\r\n    padding: 20px 0; /* Khoảng cách trên và dưới */\r\n    }\r\n\r\n\r\n</style>\r\n"
+        }
+    ]
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Extras - Sản Phẩm</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="icon" href="../img/logo/logopng.png" type="image/png">
+    <script src="../js/jquery-3.6.1.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+    .list-group-item:hover {
+        background-color: #d0e7ff; 
+        font-weight: bold;
+    }
+
+    .card-title a {
+        color: black; 
+        text-decoration: none; 
+    }   
+
+    .card:hover .card-title a {
+        color: gray; 
+        text-decoration: none;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        transition: transform 0.3s ease; 
+    }
+
+    .card:hover {
+        transform: scale(1.05); 
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        // Khi nhấp vào sản phẩm, hiển thị modal tương ứng
+        $('[data-toggle="modal"]').click(function() {
+            var targetModal = $(this).data('target');
+            $(targetModal).modal('show');
+        });
+
+        // Đóng modal khi nhấp vào nút đóng
+        $('.modal .close').click(function() {
+            $(this).closest('.modal').modal('hide');
+        });
+
+        // Hàm thêm sản phẩm vào giỏ hàng
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let existingProduct = cart.find(item => item.id === product.id);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert("Đã thêm sản phẩm vào giỏ hàng!");
+        }
+
+        // Xử lý sự kiện click cho nút "Thêm vào giỏ hàng"
+        $('.add-to-cart').click(function (e) {
+            e.preventDefault();
+            const product = {
+                id: $(this).data('id'),
+                name: $(this).data('name'),
+                price: $(this).data('price'),
+                image: $(this).data('data-image'),
+            };
+            addToCart(product);
+        });
+    });
+</script>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- top header -->
+        <div class="container-fluid">
+            <div class="row" id="top-header">
+                <div class="col-md-9 my-2 p-1">
+                    <ul id="top-contact" class="list-inline d-flex justify-content-end">
+                        <li class="list-inline-item mx-2">
+                            <a href="./html/thanh-vien.html" class="contact-link">
+                                <img src="../img/icon/person.png" alt="" style="width: 30px; height: 30px; margin-right: 5px;">
+                                <i class="fa-solid fa-users"></i> Thành viên
+                            </a>
+                        </li>
+                        <li class="list-inline-item mx-2">
+                            <a href="../html/cart.html" class="contact-link">
+                                <img src="../img/icon/cart.png" alt="" style="width: 30px; height: 30px; margin-right: 5px;">
+                                <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>   
+    </header>
+
+    <!-- Navigation -->
+    <div class="fixed-nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">
+                    <img src="../img/logo/pelogo.png" alt="Phone Extras Logo" style="height: auto; max-width: 200px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="../html/index.html">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/about.html">Giới Thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/products.html">Sản Phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/news.html">Tin Tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/cart.html">Giỏ Hàng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/contact.html">Liên Hệ</a></li>
+                    </ul>
+                    <form id="nav-form-search" class="form-inline my-2 my-lg-0">
+                        <!-- mục tìm kiếm -->
+                        <div class="input-group" id="input-search-top">
+                            <!-- Danh mục sản phẩm -->
+                            <select name="" id="select-product-category" class="custom-select">
+                                <option value="all">Tất cả phụ kiện</option>
+                                <option value="case">Ốp lưng</option>
+                                <option value="cable">Cáp sạc</option>
+                                <option value="earphone">Tai nghe</option>
+                                <option value="screen-protector">Cường lực</option>
+                                <option value="power-bank">Sạc dự phòng</option>
+                            </select>
+
+                            <!-- Mục tìm kiếm -->
+                            <input type="text" class="form-control" placeholder="Tìm kiếm ...">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary bg-light" type="submit">
+                                    <i class="fas fa-search"></i>
+                                    <img src="../img/icon/search.png" alt="" width="20px">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <h4 class="my-4">Danh Mục Sản Phẩm</h4>
+                <div class="list-group">
+                    <a href="../html/products.html" class="list-group-item">Tất cả sản phẩm</a>
+                    <a href="../html/products/powerbank.html" class="list-group-item">Sạc dự phòng</a>
+                    <a href="../html/products/charge.html" class="list-group-item">Củ sạc</a>
+                    <a href="../html/products/cable.html" class="list-group-item">Cáp sạc</a>
+                    <a href="../html/products/earphone.html" class="list-group-item">Tai nghe</a>
+                    <a href="../html/products/screenprotector.html" class="list-group-item">Cường lực</a>
+                    <a href="../html/products/case.html" class="list-group-item">Ốp lưng</a>
+                    <a href="../html/products/speaker.html" class="list-group-item">Loa</a>
+                    <a href="../html/products/more.html" class="list-group-item">Các sản phẩm khác</a>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <h4 class="my-4">Sản Phẩm</h4>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal1"><img class="card-img-top" src="../img/sacdp/mau1.jpg" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal1">Sạc dự phòng Energizer 20.000mAh - Mẫu 1</a>
+                                </h5>
+                                <h6>690,000 VND</h6>
+                                <p class="card-text">Sạc dự phòng dung lượng cao, thiết kế nhỏ gọn.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal2"><img class="card-img-top" src="../img/sacdp/mau2.png" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal2">Sạc dự phòng Xiaomi 10.000mAh - Mẫu 2</a>
+                                </h5>
+                                <h6>450,000 VND</h6>
+                                <p class="card-text">Sạc dự phòng nhỏ gọn, hiệu suất cao.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal3"><img class="card-img-top" src="../img/sacdp/mau3.png" alt="Product 3"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal3">Sạc dự phòng Baseus Qpow Pro 20.000mAh 20W - Mẫu 3</a>
+                                </h5>
+                                <h6>750,000 VND</h6>
+                                <p class="card-text">Sạc dự phòng dung lượng lớn, thiết kế bền bỉ.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal4"><img class="card-img-top" src="../img/cusac/mau1.png" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal4">Củ Sạc Anker PowerPort III Nano PD 20W - Mẫu 1</a>
+                                </h5>
+                                <h6>220,000 VND</h6>
+                                <p class="card-text">Thiết kế với hình dáng hình lục giác độc đáo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal5"><img class="card-img-top" src="../img/cusac/mau2.jpg" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal5">Củ Sạc Apple iPhone 20w Type C - Mẫu 2</a>
+                                </h5>
+                                <h6>490,000 VND</h6>
+                                <p class="card-text">Củ sạc nhanh, nhỏ gọn, tương thích với nhiều thiết bị.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal6"><img class="card-img-top" src="../img/cusac/mau3.png" alt="Product 3"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal6">Củ sạc Ugreen PD 20W - Mẫu 3</a>
+                                </h5>
+                                <h6>490,000 VND</h6>
+                                <p class="card-text">Đến từ thương hiệu UGREEN chất lượng tốt trong thế giới phụ kiện</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modals -->
+    <div class="modal fade" id="productModal1" tabindex="-1" role="dialog" aria-labelledby="productModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel1">Sạc dự phòng Energizer 20.000mAh - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/sacdp/mau1.jpg" class="img-fluid" alt="Product 1">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>690,000 VND</h4>
+                            <p>Sạc dự phòng dung lượng cao, thiết kế nhỏ gọn.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dung lượng: 20.000mAh</li>
+                                <li>Đầu ra: 2 cổng USB</li>
+                                <li>Đầu vào: Micro USB, USB-C</li>
+                                <li>Kích thước: 150 x 70 x 20 mm</li>
+                                <li>Trọng lượng: 300g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="1" data-name="Sạc dự phòng Energizer 20.000mAh - Mẫu 1" data-price="690000" data-image="../img/sacdp/mau1.jpg">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal2" tabindex="-1" role="dialog" aria-labelledby="productModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel2">Sạc dự phòng Xiaomi 10.000mAh - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/sacdp/mau2.png" class="img-fluid" alt="Product 2">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>450,000 VND</h4>
+                            <p>Sạc dự phòng nhỏ gọn, hiệu suất cao.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dung lượng: 10.000mAh</li>
+                                <li>Đầu ra: 2 cổng USB</li>
+                                <li>Đầu vào: Micro USB, USB-C</li>
+                                <li>Kích thước: 130 x 60 x 20 mm</li>
+                                <li>Trọng lượng: 250g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="2" data-name="Sạc dự phòng Xiaomi 10.000mAh - Mẫu 2" data-price="450000" data-image="../img/sacdp/mau2.jpg">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal3" tabindex="-1" role="dialog" aria-labelledby="productModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel3">Sạc dự phòng Baseus Qpow Pro 20.000mAh 20W - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/sacdp/mau3.png" class="img-fluid" alt="Product 3">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>750,000 VND</h4>
+                            <p>Sạc dự phòng dung lượng lớn, thiết kế bền bỉ.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dung lượng: 20.000mAh</li>
+				<li>Cổng sạc vào: 1 x Lightning, 1 x Type-C</li>
+                                <li>Công suất đầu ra: 1 x USB-A</li>
+                                <li>Kích thước: 123 x 75 x 33 mm</li>
+                                <li>Trọng lượng: 360g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="3" data-name="Sạc dự phòng Baseus Qpow Pro 20.000mAh 20W - Mẫu 3" data-price="750000" data-image="../img/sacdp/mau3.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal4" tabindex="-1" role="dialog" aria-labelledby="productModalLabel4" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel4">Củ Sạc Anker PowerPort III Nano PD 20W - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/cusac/mau1.png" class="img-fluid" alt="Product 4">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>220,000 VND</h4>
+                            <p>Thiết kế với hình dáng hình lục giác độc đáo.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Cổng sạc ra: 1 x Type-C</li>
+                                <li>Sạc tối đa: 1 thiết bị</li>
+                                <li>Công suất sạc: 20W</li>
+                                <li>Tính năng: Sạc nhanh</li>
+                                <li>Trọng lượng: 360g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="4" data-name="Củ Sạc Anker PowerPort III Nano PD 20W - Mẫu 1" data-price="220000" data-image="../img/cusac/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal5" tabindex="-1" role="dialog" aria-labelledby="productModalLabel5" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel5">Củ Sạc Apple iPhone 20w Type C - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/cusac/mau2.jpg" class="img-fluid" alt="Product 5">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>490,000 VND</h4>
+                            <p>Củ sạc nhanh, nhỏ gọn, tương thích với nhiều thiết bị.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Cổng sạc ra: 1 x Type-C</li>
+                                <li>Sạc tối đa: 1 thiết bị</li>
+                                <li>Công suất sạc: 20W</li>
+                                <li>Tính năng: Sạc nhanh</li>
+                                <li>Trọng lượng: 360g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="5" data-name="Củ Sạc Apple iPhone 20w Type C - Mẫu 2" data-price="490000" data-image="../img/cusac/mau2.jpg">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal6" tabindex="-1" role="dialog" aria-labelledby="productModalLabel6" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel6">Củ sạc Ugreen PD 20W - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/cusac/mau3.png" class="img-fluid" alt="Product 6">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>490,000 VND</h4>
+                            <p>Đến từ thương hiệu UGREEN chất lượng tốt trong thế giới phụ kiện.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Cổng sạc ra: 1 x Type-C</li>
+                                <li>Sạc tối đa: 1 thiết bị</li>
+                                <li>Công suất sạc: 20W</li>
+                                <li>Tính năng: Sạc nhanh</li>
+                                <li>Trọng lượng: 360g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="6" data-name="Củ sạc Ugreen PD 20W - Mẫu 3" data-price="490000" data-image="../img/cusac/mau3.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div id="footer" class="mt-5 w-100">
+        <div class="container">
+            <div id="footer-main">
+                <div class="row">
+                    <!-- About Us -->
+                    <div class="col-md-5 mt-3">
+                        <div class="brand-name">
+                            <a href="../html/index.html">
+                                <img src="../img/logo/logopng.png" style="width: 100px;" alt="logo">
+                            </a>
+                            <span class="company-name">CÔNG TY TNHH PHONE EXTRAS</span>
+                        </div>
+                        <div class="about mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-bookmark"></i></span>
+                            <div class="contact-detail">
+                                Chuyên cung cấp các phụ kiện điện thoại chất lượng cao, giúp bạn nâng cấp trải nghiệm di động.
+                            </div>
+                        </div>
+                        <div class="copyright mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-check"></i></span>
+                            <div class="contact-detail">
+                                © Tất cả hình ảnh và nội dung trong trang web thuộc bản quyền của
+                                <a href="https://phonextras.com/">Phone Extras</a>. Nội dung chỉ nhằm mục đích học tập.
+                            </div>
+                        </div>
+                        <div class="project-purpose mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-school"></i></span>
+                            <div class="contact-detail">
+                                Đây là bài tập lớn của môn Hệ thống và Công nghệ Web. Nội dung và sản phẩm trên website chỉ phục vụ thử nghiệm. Không phục vụ mục đích thương mại!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-md-3 mt-3">
+                        <div class="contact-title">
+                            <span class="company-name">Liên hệ</span>
+                        </div>
+                        <div class="address mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div class="contact-detail">Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</div>
+                        </div>
+                        <div class="phone mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
+                            <div class="contact-detail">
+                                <a href="tel:+028 123 4567">Điện thoại: +024 567 8912</a>
+                            </div>
+                        </div>
+                        <div class="email mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <div class="contact-detail">
+                                <a href="mailto:info@phonextras.com">Email: info@phonextras.com</a>
+                            </div>
+                        </div>
+                        <div class="website mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-globe"></i></span>
+                            <div class="contact-detail">
+                                <a href="https://phonextras.com/">Website: www.phonextras.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Follow Us -->
+                    <div class="col-md-4 mt-3">
+                        <div class="payment-methods mb-3">
+                            <span class="company-name">Phương thức thanh toán</span>
+                            <ul class="nav">
+                                <li class="mx-1"><img src="../img/icon/visa.png" alt="payment1" width="100px"></li>
+                                <li class="mx-1"><img src="../img/icon/vnpay.png" alt="payment2" width="120px"></li>
+                                <li class="mx-1"><img src="../img/icon/momo.png" alt="payment3" width="100px" height="57px" ></li>
+                            </ul>
+                        </div>
+                        <div class="shipping-methods mb-3">
+                            <span class="company-name">Phương thức vận chuyển</span>
+                            <ul class="nav">
+                                <li class="mx-1"><img src="../img/icon/shipment1.png" alt="shipment1" width="110px"></li>
+                                <li class="mx-1"><img src="../img/icon/shipment2.png" alt="shipment2" width="110px"></li>
+                                <li class="mx-1"><img src="../img/icon/shipment3.png" alt="shipment3" width="110px"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div id="footer-bottom" class="text-center mt-4">
+                <p>© 2024 Phone Extras by Nguyễn Ngọc Hân. All Rights Reserved.</p>
+                <p>Nguyễn Ngọc Hân - 22681821 - DHTMDT18C</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+</body>
+</html>

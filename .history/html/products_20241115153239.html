@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Extras - Sản Phẩm</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="icon" href="../img/logo/logopng.png" type="image/png">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
+<script>
+    // JavaScript/jQuery for form validation and other functionalities
+    $(document).ready(function() {
+        $('#login-form').submit(function(event) {
+            event.preventDefault();
+            // Add login validation logic here
+        });
+
+        // Add product functionalities here
+    });
+</script>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- top header -->
+        <div class="container-fluid">
+            <div class="row" id="top-header">
+                <div class="col-md-9 my-2 p-1">
+                    <ul id="top-contact" class="list-inline d-flex justify-content-end">
+                        <li class="list-inline-item mx-2">
+                            <a href="./html/thanh-vien.html" class="contact-link">
+                                <img src="../img/icon/person.png" alt="" style="width: 30px; height: 30px; margin-right: 5px;">
+                                <i class="fa-solid fa-users"></i> Thành viên
+                            </a>
+                        </li>
+                        <li class="list-inline-item mx-2">
+                            <a href="./html/gio-hang.html" class="contact-link">
+                                <img src="../img/icon/cart.png" alt="" style="width: 30px; height: 30px; margin-right: 5px;">
+                                <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>   
+    </header>
+
+    <!-- Navigation -->
+    <div class="fixed-nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">
+                    <img src="../img/logo/pelogo.png" alt="Phone Extras Logo" style="height: auto; max-width: 200px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="../html/index.html">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/about.html">Giới Thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/products.html">Sản Phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/news.html">Tin Tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/cart.html">Giỏ Hàng</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../html/contact.html">Liên Hệ</a></li>
+                    </ul>
+                    <form id="nav-form-search" class="form-inline my-2 my-lg-0">
+                        <!-- mục tìm kiếm -->
+                        <div class="input-group" id="input-search-top">
+                            <!-- Danh mục sản phẩm -->
+                            <select name="" id="select-product-category" class="custom-select">
+                                <option value="all">Tất cả phụ kiện</option>
+                                <option value="case">Ốp lưng</option>
+                                <option value="cable">Cáp sạc</option>
+                                <option value="earphone">Tai nghe</option>
+                                <option value="screen-protector">Cường lực</option>
+                                <option value="power-bank">Sạc dự phòng</option>
+                            </select>
+
+                            <!-- Mục tìm kiếm -->
+                            <input type="text" class="form-control" placeholder="Tìm kiếm ...">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary bg-light" type="submit">
+                                    <i class="fas fa-search"></i>
+                                    <img src="../img/icon/search.png" alt="" width="20px">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <h4 class="my-4">Danh Mục Sản Phẩm</h4>
+                <div class="list-group">
+                    <a href="products.html#case" class="list-group-item">Ốp lưng</a>
+                    <a href="products.html#cable" class="list-group-item">Cáp sạc</a>
+                    <a href="products.html#earphone" class="list-group-item">Tai nghe</a>
+                    <a href="products.html#screen-protector" class="list-group-item">Cường lực</a>
+                    <a href="products.html#power-bank" class="list-group-item">Sạc dự phòng</a>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <h4 class="my-4">Sản Phẩm</h4>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="product-detail.html"><img class="card-img-top" src="../img/products/product1.jpg" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="product-detail.html">Sản Phẩm 1</a>
+                                </h5>
+                                <h6>500,000 VND</h6>
+                                <p class="card-text">Mô tả ngắn gọn về sản phẩm 1.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="product-detail.html"><img class="card-img-top" src="../img/products/product2.jpg" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="product-detail.html">Sản Phẩm 2</a>
+                                </h5>
+                                <h6>600,000 VND</h6>
+                                <p class="card-text">Mô tả ngắn gọn về sản phẩm 2.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="product-detail.html"><img class="card-img-top" src="../img/products/product3.jpg" alt="Product 3"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="product-detail.html">Sản Phẩm 3</a>
+                                </h5>
+                                <h6>700,000 VND</h6>
+                                <p class="card-text">Mô tả ngắn gọn về sản phẩm 3.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thêm các sản phẩm khác tương tự -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!-- Footer Start -->
+    <div id="footer" class="mt-5 w-100">
+        <div class="container">
+            <div id="footer-main">
+                <div class="row">
+                    <!-- About Us -->
+                    <div class="col-md-5 mt-3">
+                        <div class="brand-name">
+                            <a href="../html/index.html">
+                                <img src="../img/logo/logopng.png" style="width: 100px;" alt="logo">
+                            </a>
+                            <span class="company-name">CÔNG TY TNHH PHONE EXTRAS</span>
+                        </div>
+                        <div class="about mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-bookmark"></i></span>
+                            <div class="contact-detail">
+                                Chuyên cung cấp các phụ kiện điện thoại chất lượng cao, giúp bạn nâng cấp trải nghiệm di động.
+                            </div>
+                        </div>
+                        <div class="copyright mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-check"></i></span>
+                            <div class="contact-detail">
+                                © Tất cả hình ảnh và nội dung trong trang web thuộc bản quyền của
+                                <a href="https://phonextras.com/">Phone Extras</a>. Nội dung chỉ nhằm mục đích học tập.
+                            </div>
+                        </div>
+                        <div class="project-purpose mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-school"></i></span>
+                            <div class="contact-detail">
+                                Đây là bài tập lớn của môn Hệ thống và Công nghệ Web. Nội dung và sản phẩm trên website chỉ phục vụ thử nghiệm. Không phục vụ mục đích thương mại!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-md-3 mt-3">
+                        <div class="contact-title">
+                            <span class="company-name">Liên hệ</span>
+                        </div>
+                        <div class="address mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <div class="contact-detail">Địa chỉ: 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</div>
+                        </div>
+                        <div class="phone mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
+                            <div class="contact-detail">
+                                <a href="tel:+028 123 4567">Điện thoại: +024 567 8912</a>
+                            </div>
+                        </div>
+                        <div class="email mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <div class="contact-detail">
+                                <a href="mailto:info@phonextras.com">Email: info@phonextras.com</a>
+                            </div>
+                        </div>
+                        <div class="website mt-2">
+                            <span class="contact-icon"><i class="fa-solid fa-globe"></i></span>
+                            <div class="contact-detail">
+                                <a href="https://phonextras.com/">Website: www.phonextras.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Follow Us -->
+                    <div class="col-md-4 mt-3">
+                        <div class="payment-methods mb-3">
+                            <span class="company-name">Phương thức thanh toán</span>
+                            <ul class="nav">
+                                <li class="mx-1"><img src="../img/icon/visa.png" alt="payment1" width="100px"></li>
+                                <li class="mx-1"><img src="../img/icon/vnpay.png" alt="payment2" width="120px"></li>
+                                <li class="mx-1"><img src="../img/icon/momo.png" alt="payment3" width="100px" height="57px" ></li>
+                            </ul>
+                        </div>
+                        <div class="shipping-methods mb-3">
+                            <span class="company-name">Phương thức vận chuyển</span>
+                            <ul class="nav">
+                                <li class="mx-1"><img src="../img/icon/shipment1.png" alt="shipment1" width="110px"></li>
+                                <li class="mx-1"><img src="../img/icon/shipment2.png" alt="shipment2" width="110px"></li>
+                                <li class="mx-1"><img src="../img/icon/shipment3.png" alt="shipment3" width="110px"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div id="footer-bottom" class="text-center mt-4">
+                <p>© 2024 Phone Extras by Nguyễn Ngọc Hân. All Rights Reserved.</p>
+                <p>Nguyễn Ngọc Hân - 22681821 - DHTMDT18C</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+</body>
+</html>

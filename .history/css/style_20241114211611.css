@@ -1,0 +1,105 @@
+    .img-container {
+        text-align: center; 
+    }
+    .img-responsive {
+        width: 80px; 
+        height: auto;
+    }
+
+    .img-services{
+        width: 200px; 
+        height: auto;
+    }
+
+    
+
+    #categories .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+
+    #categories .col-md-3 {
+        flex: 1 1 10%; 
+        max-width: 10%;
+        box-sizing: border-box;
+        padding: 10px; 
+    }
+
+    #categories .col-md-3 img {
+        width: 80%; 
+        height: auto;
+    }
+
+    #categories .col-md-3 a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: black; 
+        text-decoration: none; 
+    }
+
+    #categories .col-md-3 a:hover {
+        color: gray; 
+    }
+
+    #categories .col-md-3 h4 {
+        margin: 0;
+        font-size: 110%; 
+    }
+
+
+    #services {
+    padding-top: 40px; 
+    padding-bottom: 40px; 
+    }
+
+    #services .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #services .col-md-3 {
+        background-color: white; 
+        border-radius: 10px; 
+        padding: 15px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        margin: 10px; 
+        flex: 1 1 calc(25% - 20px); 
+        box-sizing: border-box;
+    }
+
+    #services .col-md-3 img {
+        width: 40%; 
+        height: auto;
+        margin-bottom: 10px; 
+    }
+
+    #services h5 {
+        font-size: 1.1em;
+        margin-bottom: 8px; 
+    }
+
+    #services p {
+        font-size: 0.85em; 
+    }
+
+    /* hiệu ứng chuyển đổi */
+    #services .col-md-3 {
+    transition: transform 0.3s, box-shadow 0.3s; 
+    }
+
+    #services .col-md-3:hover {
+        transform: translateY(-5px); /*di chuyển nhích lên*/
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /*Bóng đậm*/
+    }
+
+    #footer {
+    background-color: #f8f9fa; 
+    width: 100%;
+    padding: 20px 0; /* Khoảng cách trên và dưới */
+    }
+
+

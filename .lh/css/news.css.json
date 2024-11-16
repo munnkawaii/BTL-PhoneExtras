@@ -1,0 +1,22 @@
+{
+    "sourceFile": "css/news.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1731596907312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1731596942197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,45 +0,0 @@\n-body {\r\n-    font-family: Arial, sans-serif;\r\n-}\r\n-\r\n-.navbar-brand {\r\n-    font-weight: bold;\r\n-}\r\n-\r\n-.card {\r\n-    border: 1px solid #ddd;\r\n-    border-radius: 5px;\r\n-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n-}\r\n-\r\n-.card-img-top {\r\n-    border-top-left-radius: 5px;\r\n-    border-top-right-radius: 5px;\r\n-}\r\n-\r\n-.card-body {\r\n-    padding: 15px;\r\n-}\r\n-\r\n-.card-title {\r\n-    margin-bottom: 15px;\r\n-}\r\n-\r\n-.card-text {\r\n-    margin-bottom: 15px;\r\n-}\r\n-\r\n-.btn-primary {\r\n-    background-color: #007bff;\r\n-    border-color: #007bff;\r\n-}\r\n-\r\n-.btn-primary:hover {\r\n-    background-color: #0056b3;\r\n-    border-color: #004085;\r\n-}\r\n-\r\n-footer {\r\n-    background-color: #f8f9fa;\r\n-    padding: 20px 0;\r\n-}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1731596907312,
+            "name": "Commit-0",
+            "content": "body {\r\n    font-family: Arial, sans-serif;\r\n}\r\n\r\n.navbar-brand {\r\n    font-weight: bold;\r\n}\r\n\r\n.card {\r\n    border: 1px solid #ddd;\r\n    border-radius: 5px;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.card-img-top {\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n}\r\n\r\n.card-body {\r\n    padding: 15px;\r\n}\r\n\r\n.card-title {\r\n    margin-bottom: 15px;\r\n}\r\n\r\n.card-text {\r\n    margin-bottom: 15px;\r\n}\r\n\r\n.btn-primary {\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n}\r\n\r\n.btn-primary:hover {\r\n    background-color: #0056b3;\r\n    border-color: #004085;\r\n}\r\n\r\nfooter {\r\n    background-color: #f8f9fa;\r\n    padding: 20px 0;\r\n}"
+        }
+    ]
+}
