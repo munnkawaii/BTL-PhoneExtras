@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài viết - Phụ Kiện Điện Thoại</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Phone Extras - Đăng Nhập</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../img/logo/logopng.png" type="image/png">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery-3.5.1.slim.min.js"></script> 
+    <script src="../js/popper.min.js"></script> 
+    <script src="../js/bootstrap.min.js"></script>
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
+      <!-- Header -->
+      <header>
         <!-- top header -->
         <div class="container-fluid">
             <div class="row" id="top-header">
@@ -37,7 +36,7 @@
             </div>
         </div>   
     </header>
-
+    
     <!-- Navigation -->
     <div class="fixed-nav">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,75 +56,38 @@
                         <li class="nav-item"><a class="nav-link" href="../html/cart.html">Giỏ Hàng</a></li>
                         <li class="nav-item"><a class="nav-link" href="../html/contact.html">Liên Hệ</a></li>
                     </ul>
-                    <form id="nav-form-search" class="form-inline my-2 my-lg-0">
-                        <!-- mục tìm kiếm -->
-                        <div class="input-group" id="input-search-top">
-                            <!-- Danh mục sản phẩm -->
-                            <select name="" id="select-product-category" class="custom-select">
-                                <option value="all">Tất cả phụ kiện</option>
-                                <option value="case">Ốp lưng</option>
-                                <option value="cable">Cáp sạc</option>
-                                <option value="earphone">Tai nghe</option>
-                                <option value="screen-protector">Cường lực</option>
-                                <option value="power-bank">Sạc dự phòng</option>
-                            </select>
-
-                            <!-- Mục tìm kiếm -->
-                            <input type="text" class="form-control" placeholder="Tìm kiếm ...">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary bg-light" type="submit">
-                                    <i class="fas fa-search"></i>
-                                    <img src="../img/icon/search.png" alt="" width="20px">
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </nav>
     </div>
 
-        <!-- Blog -->
-    <section id="articles" class="my-4">
-        <div class="container">
-            <h3 class="display-4 text-center">Bài Viết Mới Nhất</h3>
-            <div class="row p-3">
-                <div class="col-md-12 border m-2">
-                    <div class="row align-items-center h-100">
-                        <div class="col-4 d-flex align-items-center p-2">
-                            <img src="../img/blog/pkdt.jpg" class="img-fluid rounded" alt="Top 10 Phụ Kiện Điện Thoại Bạn Nên Có">
-                        </div>
-                        <div class="col-8">
-                            <h6 class="mb-3">Top 10 Phụ Kiện Điện Thoại Bạn Nên Có</h6>
-                            <p class="text-justify mb-4">
-                                Khám phá những phụ kiện điện thoại hàng đầu mà bạn nên sở hữu để nâng cao trải nghiệm sử dụng điện thoại của mình.
-                            </p>
-                            <div class="text-center">
-                                <a href="article1.html" class="btn btn-info btn-sm">Đọc thêm ...</a>
+    <!-- Main Content -->
+    <main>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="_6luv _52jv">
+                        <h2 class="text-center">Đăng Nhập</h2>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="loginIdentifier">Username hoặc Email</label>
+                                <input type="text" class="form-control" id="loginIdentifier" placeholder="Nhập username hoặc email">
+                                <span id="loginIdentifierError" class="text-danger"></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 border m-2">
-                    <div class="row align-items-center h-100">
-                        <div class="col-4 d-flex align-items-center p-2">
-                            <img src="../img/blog/case.jpg" class="img-fluid rounded" alt="Cách Chọn Ốp Lưng Phù Hợp Cho Điện Thoại Của Bạn">
-                        </div>
-                        <div class="col-8">
-                            <h6 class="mb-3">Cách Chọn Ốp Lưng Phù Hợp Cho Điện Thoại Của Bạn</h6>
-                            <p class="text-justify mb-4">
-                                Hướng dẫn chi tiết về cách chọn ốp lưng phù hợp với điện thoại của bạn, bảo vệ thiết bị và thể hiện phong cách cá nhân.
-                            </p>
-                            <div class="text-center">
-                                <a href="article2.html" class="btn btn-info btn-sm">Đọc thêm ...</a>
+                            <div class="form-group">
+                                <label for="loginPassword">Mật Khẩu</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu">
+                                <span id="loginPasswordError" class="text-danger"></span>
                             </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary btn-block">Đăng Nhập</button>
+                        </form>
+                        <div id="login-result" class="mt-4"></div>
+                        <p class="text-center mt-3">Nếu chưa có tài khoản, hãy <a href="register.html">đăng ký tại đây</a>.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer Start -->
     <div id="footer" class="mt-5 w-100">
@@ -221,5 +183,22 @@
     </div>
     <!-- Footer End -->
 
+    <script>
+        $(document).ready(function() {
+            $("#login-form").submit(function(event) {
+                event.preventDefault();
+                var identifier = $("#loginIdentifier").val();
+                var password = $("#loginPassword").val();
+                var users = JSON.parse(localStorage.getItem('users')) || [];
+                var user = users.find(u => (u.email === identifier || u.username === identifier) && u.password === password);
+
+                if (user) {
+                    $("#login-result").html("<h4>Đăng Nhập Thành Công</h4><p>Chào mừng, " + user.ht + "!</p>");
+                } else {
+                    $("#login-result").html("<h4>Đăng Nhập Thất Bại</h4><p>Username/Email hoặc mật khẩu không đúng.</p>");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

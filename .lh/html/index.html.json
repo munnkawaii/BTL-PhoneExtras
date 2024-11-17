@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 83,
+            "activePatchIndex": 86,
             "patches": [
                 {
                     "date": 1731590234937,
@@ -340,6 +340,18 @@
                 {
                     "date": 1731657408700,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n     <title>Phone Extras - Trang Chủ</title>\r\n     <link rel=\"stylesheet\" href=\"../css/bootstrap.min.css\">\r\n     <link rel=\"stylesheet\" href=\"../css/style.css\">\r\n-    <link rel=\"icon\" href=\"../img/logo/logo.png\" type=\"image/png\">\r\n+    <link rel=\"icon\" href=\"../img/logo/logopng.png\" type=\"image/png\">\r\n     <!-- <script src=\"../js/jquery-3.6.1.js\"></script>\r\n     <script src=\"../js/bootstrap.bundle.min.js\"></script> -->\r\n     <script src=\"../js/jquery-3.5.1.slim.min.js\"></script> \r\n     <script src=\"../js/popper.min.js\"></script> \r\n"
+                },
+                {
+                    "date": 1731848799573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -257,9 +257,9 @@\n                 <div class=\"col-md-3\">\r\n                     <div class=\"card\">\r\n                         <img src=\"../img/tainghe/mau4.png\" class=\"card-img-top\" alt=\"Sản phẩm 4\">\r\n                         <div class=\"card-body\">\r\n-                            <h5 class=\"card-title\">Tai nghe Bluetooth Apple AirPods 2 - Mẫu 4</h5>\r\n+                            <h5 class=\"card-title\">Tai nghe Bluetooth Apple AirPods 2 - Mẫu 1</h5>\r\n                             <p class=\"card-text\">Tai nghe Apple AirPods 2 chính hãng, âm thanh chất lượng cao.</p>\r\n                             <p class=\"price\">2,990,000 VND</p>\r\n                             <a href=\"product-detail.html\" class=\"btn btn-primary\">Xem chi tiết</a>\r\n                         </div>\r\n"
+                },
+                {
+                    "date": 1731850373473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n             <div class=\"row\" id=\"top-header\">\r\n                 <div class=\"col-md-9 my-2 p-1\">\r\n                     <ul id=\"top-contact\" class=\"list-inline d-flex justify-content-end\">\r\n                         <li class=\"list-inline-item mx-2\">\r\n-                            <a href=\"./html/thanh-vien.html\" class=\"contact-link\">\r\n+                            <a href=\"..\" class=\"contact-link\">\r\n                                 <img src=\"../img/icon/person.png\" alt=\"\" style=\"width: 30px; height: 30px; margin-right: 5px;\">\r\n                                 <i class=\"fa-solid fa-users\"></i> Thành viên\r\n                             </a>\r\n                         </li>\r\n@@ -255,9 +255,9 @@\n                     </div>\r\n                 </div>\r\n                 <div class=\"col-md-3\">\r\n                     <div class=\"card\">\r\n-                        <img src=\"../img/tainghe/mau4.png\" class=\"card-img-top\" alt=\"Sản phẩm 4\">\r\n+                        <img src=\"../img/tainghe/mau1.png\" class=\"card-img-top\" alt=\"Sản phẩm 4\">\r\n                         <div class=\"card-body\">\r\n                             <h5 class=\"card-title\">Tai nghe Bluetooth Apple AirPods 2 - Mẫu 1</h5>\r\n                             <p class=\"card-text\">Tai nghe Apple AirPods 2 chính hãng, âm thanh chất lượng cao.</p>\r\n                             <p class=\"price\">2,990,000 VND</p>\r\n"
+                },
+                {
+                    "date": 1731850387391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,15 +36,15 @@\n             <div class=\"row\" id=\"top-header\">\r\n                 <div class=\"col-md-9 my-2 p-1\">\r\n                     <ul id=\"top-contact\" class=\"list-inline d-flex justify-content-end\">\r\n                         <li class=\"list-inline-item mx-2\">\r\n-                            <a href=\"..\" class=\"contact-link\">\r\n+                            <a href=\"../html/member.html\" class=\"contact-link\">\r\n                                 <img src=\"../img/icon/person.png\" alt=\"\" style=\"width: 30px; height: 30px; margin-right: 5px;\">\r\n                                 <i class=\"fa-solid fa-users\"></i> Thành viên\r\n                             </a>\r\n                         </li>\r\n                         <li class=\"list-inline-item mx-2\">\r\n-                            <a href=\"./html/gio-hang.html\" class=\"contact-link\">\r\n+                            <a href=\"../html/\" class=\"contact-link\">\r\n                                 <img src=\"../img/icon/cart.png\" alt=\"\" style=\"width: 30px; height: 30px; margin-right: 5px;\">\r\n                                 <i class=\"fa-solid fa-cart-shopping\"></i> Giỏ hàng\r\n                             </a>\r\n                         </li>\r\n"
                 }
             ],
             "date": 1731590234937,

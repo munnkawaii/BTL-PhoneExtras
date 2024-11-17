@@ -1,21 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài viết - Phụ Kiện Điện Thoại</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Phone Extras - Đăng Ký Thành Viên</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../img/logo/logopng.png" type="image/png">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery-3.6.1.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </head>
+<script>
+    $(document).ready(function() {
+        function kiemTraUsername() {
+            var mauKT = /^[a-zA-Z0-9]{1,17}$/;
+            if ($("#txtUsername").val() == "") {
+                $("#tbUsername").html("Bắt buộc nhập");
+                return false;
+            }
+            if (!mauKT.test($("#txtUsername").val())) {
+                $("#tbUsername").html("Username không được chứa ký tự đặc biệt và tối đa 17 ký tự");
+                return false;
+            }
+            $("#tbUsername").html("");
+            return true;
+        }
 
+        function kiemTraHT() {
+            var kt = /(^[A-Z]{1}[a-z]+)(\s[A-Z]{1}[a-z]*)+$/;
+            if ($("#txtHT").val() == "") {
+                $("#tbTen").html("Bắt buộc nhập");
+                return false;
+            }
+            if (!kt.test($("#txtHT").val())) {
+                $("#tbTen").html("Chữ cái đầu của mỗi từ phải viết hoa");
+                return false;
+            }
+            $("#tbTen").html("");
+            return true;
+        }
+
+        function kiemTraEmail() {
+            var mauKT = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if ($("#txtEmail").val() == "") {
+                $("#tbEmail").html("Bắt buộc nhập");
+                return false;
+            }
+            if (!mauKT.test($("#txtEmail").val())) {
+                $("#tbEmail").html("Email không hợp lệ");
+                return false;
+            }
+            $("#tbEmail").html("");
+            return true;
+        }
+
+        function kiemTraPassword() {
+            if ($("#txtPassword").val() == "") {
+                $("#tbPassword").html("Bắt buộc nhập");
+                return false;
+            }
+            if ($("#txtPassword").val().length < 6) {
+                $("#tbPassword").html("Mật khẩu phải có ít nhất 6 ký tự");
+                return false;
+            }
+            $("#tbPassword").html("");
+            return true;
+        }
+
+        $("#txtUsername").blur(kiemTraUsername);
+        $("#txtHT").blur(kiemTraHT);
+        $("#txtEmail").blur(kiemTraEmail);
+        $("#txtPassword").blur(kiemTraPassword);
+
+        $("#registration-form").submit(function(event) {
+            event.preventDefault();
+            if (kiemTraUsername() && kiemTraHT() && kiemTraEmail() && kiemTraPassword()) {
+                var username = $("#txtUsername").val();
+                var ht = $("#txtHT").val();
+                var email = $("#txtEmail").val();
+                var password = $("#txtPassword").val();
+                var result = "<h4>Thông Tin Đăng Ký Thành Công</h4>";
+                result += "<p>Username: " + username + "</p>";
+                result += "<p>Họ Tên: " + ht + "</p>";
+                result += "<p>Email: " + email + "</p>";
+                $("#registration-result").html(result);
+
+                // Lưu thông tin đăng ký vào localStorage
+                var users = JSON.parse(localStorage.getItem('users')) || [];
+                users.push({ username: username, ht: ht, email: email, password: password });
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+        });
+    });
+</script>
 <body>
     <!-- Header -->
     <header>
-        <!-- top header -->
         <div class="container-fluid">
             <div class="row" id="top-header">
                 <div class="col-md-9 my-2 p-1">
@@ -57,75 +137,54 @@
                         <li class="nav-item"><a class="nav-link" href="../html/cart.html">Giỏ Hàng</a></li>
                         <li class="nav-item"><a class="nav-link" href="../html/contact.html">Liên Hệ</a></li>
                     </ul>
-                    <form id="nav-form-search" class="form-inline my-2 my-lg-0">
-                        <!-- mục tìm kiếm -->
-                        <div class="input-group" id="input-search-top">
-                            <!-- Danh mục sản phẩm -->
-                            <select name="" id="select-product-category" class="custom-select">
-                                <option value="all">Tất cả phụ kiện</option>
-                                <option value="case">Ốp lưng</option>
-                                <option value="cable">Cáp sạc</option>
-                                <option value="earphone">Tai nghe</option>
-                                <option value="screen-protector">Cường lực</option>
-                                <option value="power-bank">Sạc dự phòng</option>
-                            </select>
-
-                            <!-- Mục tìm kiếm -->
-                            <input type="text" class="form-control" placeholder="Tìm kiếm ...">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary bg-light" type="submit">
-                                    <i class="fas fa-search"></i>
-                                    <img src="../img/icon/search.png" alt="" width="20px">
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </nav>
     </div>
 
-        <!-- Blog -->
-    <section id="articles" class="my-4">
-        <div class="container">
-            <h3 class="display-4 text-center">Bài Viết Mới Nhất</h3>
-            <div class="row p-3">
-                <div class="col-md-12 border m-2">
-                    <div class="row align-items-center h-100">
-                        <div class="col-4 d-flex align-items-center p-2">
-                            <img src="../img/blog/pkdt.jpg" class="img-fluid rounded" alt="Top 10 Phụ Kiện Điện Thoại Bạn Nên Có">
+    <!-- Main Content -->
+    <main>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2>Đăng Ký Thành Viên</h2>
                         </div>
-                        <div class="col-8">
-                            <h6 class="mb-3">Top 10 Phụ Kiện Điện Thoại Bạn Nên Có</h6>
-                            <p class="text-justify mb-4">
-                                Khám phá những phụ kiện điện thoại hàng đầu mà bạn nên sở hữu để nâng cao trải nghiệm sử dụng điện thoại của mình.
-                            </p>
-                            <div class="text-center">
-                                <a href="article1.html" class="btn btn-info btn-sm">Đọc thêm ...</a>
-                            </div>
+                        <div class="card-body">
+                            <form id="registration-form">
+                                <div class="form-group">
+                                    <label for="txtUsername">Username</label>
+                                    <input type="text" class="form-control" id="txtUsername" placeholder="Nhập username">
+                                    <span id="tbUsername" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtHT">Họ Tên</label>
+                                    <input type="text" class="form-control" id="txtHT" placeholder="Nhập họ tên">
+                                    <span id="tbTen" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEmail">Email</label>
+                                    <input type="email" class="form-control" id="txtEmail" placeholder="Nhập email">
+                                    <span id="tbEmail" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPassword">Mật Khẩu</label>
+                                    <input type="password" class="form-control" id="txtPassword" placeholder="Nhập mật khẩu">
+                                    <span id="tbPassword" class="text-danger"></span>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Đăng Ký</button>
+                            </form>
+                            <div id="registration-result" class="mt-4"></div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 border m-2">
-                    <div class="row align-items-center h-100">
-                        <div class="col-4 d-flex align-items-center p-2">
-                            <img src="../img/blog/case.jpg" class="img-fluid rounded" alt="Cách Chọn Ốp Lưng Phù Hợp Cho Điện Thoại Của Bạn">
-                        </div>
-                        <div class="col-8">
-                            <h6 class="mb-3">Cách Chọn Ốp Lưng Phù Hợp Cho Điện Thoại Của Bạn</h6>
-                            <p class="text-justify mb-4">
-                                Hướng dẫn chi tiết về cách chọn ốp lưng phù hợp với điện thoại của bạn, bảo vệ thiết bị và thể hiện phong cách cá nhân.
-                            </p>
-                            <div class="text-center">
-                                <a href="article2.html" class="btn btn-info btn-sm">Đọc thêm ...</a>
-                            </div>
+                        <div class="card-footer text-center">
+                            <p>Nếu bạn đã có tài khoản, hãy <a href="member.html">đăng nhập tại đây</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer Start -->
     <div id="footer" class="mt-5 w-100">
