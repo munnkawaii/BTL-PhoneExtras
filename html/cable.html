@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Extras - Sản Phẩm</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Phone Extras - Cáp sạc</title>
+    <link rel="stylesheet" href="../css/">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="icon" href="../img/logo/logopng.png" type="image/png">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="../js/jquery-3.6.1.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ModalDetailed.js"></script>
 </head>
 
 <style>
     .list-group-item:hover {
-        background-color: #d0e7ff; /* Màu xanh dương nhạt */
+        background-color: #d0e7ff; 
+        font-weight: bold;
+    }
+
+    .card-title a {
+        color: black; 
+        text-decoration: none; 
+    }   
+
+    .card:hover .card-title a {
+        color: gray; 
+        text-decoration: none;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        transition: transform 0.3s ease; 
+    }
+
+    .card:hover {
+        transform: scale(1.05); 
     }
 </style>
 
-<script>
-    // JavaScript/jQuery for form validation and other functionalities
-    $(document).ready(function() {
-        $('#login-form').submit(function(event) {
-            event.preventDefault();
-            // Add login validation logic here
-        });
-
-        // Add product functionalities here
-    });
-</script>
 <body>
     <!-- Header -->
     <header>
@@ -38,13 +47,13 @@
                 <div class="col-md-9 my-2 p-1">
                     <ul id="top-contact" class="list-inline d-flex justify-content-end">
                         <li class="list-inline-item mx-2">
-                            <a href="./html/thanh-vien.html" class="contact-link">
+                            <a href="../html/member.html" class="contact-link">
                                 <img src="../img/icon/person.png" alt="" style="width: 30px; height: 30px; margin-right: 5px;">
                                 <i class="fa-solid fa-users"></i> Thành viên
                             </a>
                         </li>
                         <li class="list-inline-item mx-2">
-                            <a href="./html/gio-hang.html" class="contact-link">
+                            <a href="../html/cart.html" class="contact-link">
                                 <img src="../img/icon/cart.png" alt="" style="width: 30px; height: 30px; margin-right: 5px;">
                                 <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
                             </a>
@@ -116,58 +125,50 @@
                     <a href="../html/earphone.html" class="list-group-item">Tai nghe</a>
                     <a href="../html/screenprotector.html" class="list-group-item">Cường lực</a>
                     <a href="../html/case.html" class="list-group-item">Ốp lưng</a>
-
-                    <a href="products.html#power-bank" class="list-group-item">Loa</a>
-                    <a href="products.html#diff" class="list-group-item">Các sản phẩm khác</a>
+                    <a href="../html/speaker.html" class="list-group-item">Loa</a>
+                    <a href="../html/more.html" class="list-group-item">Các sản phẩm khác</a>
                 </div>
             </div>
 
             <!-- Product Grid -->
             <div class="col-lg-9 col-md-8 col-sm-12">
-                <h4 class="my-4">Sản Phẩm</h4>
+                <h4 class="my-4">Các mẫu dây sạc</h4>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="product-detail.html"><img class="card-img-top" src="../img/products/product1.jpg" alt="Product 1"></a>
+                            <a href="#" data-toggle="modal" data-target="#productModal7"><img class="card-img-top" src="../img/daysac/mau1.png" alt="Product 1"></a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="product-detail.html">Sản Phẩm 1</a>
+                                    <a href="#" data-toggle="modal" data-target="#productModal7">Cáp Anker 322 USB-C to USB-L 0.9M Nylon - Mẫu 1</a>
                                 </h5>
-                                <h6>500,000 VND</h6>
-                                <p class="card-text">Mô tả ngắn gọn về sản phẩm 1.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                                <h6>215,000 VND</h6>
+                                <p class="card-text">Làm từ vật liệu nylon nên độ bền cao và đạt chứng nhận chất lượng an toàn</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="product-detail.html"><img class="card-img-top" src="../img/products/product2.jpg" alt="Product 2"></a>
+                            <a href="#" data-toggle="modal" data-target="#productModal8"><img class="card-img-top" src="../img/daysac/mau2.png" alt="Product 2"></a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="product-detail.html">Sản Phẩm 2</a>
+                                    <a href="#" data-toggle="modal" data-target="#productModal8">Dây sạc Type C - Lightning Apple - Mẫu 2</a>  
                                 </h5>
-                                <h6>600,000 VND</h6>
-                                <p class="card-text">Mô tả ngắn gọn về sản phẩm 2.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                                <h6>540,000 VND</h6>
+                                <p class="card-text">Chính hãng Apple Việt Nam, bền bỉ theo thời gian</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="product-detail.html"><img class="card-img-top" src="../img/products/product3.jpg" alt="Product 3"></a>
+                            <a href="#" data-toggle="modal" data-target="#productModal9"><img class="card-img-top" src="../img/daysac/mau3.png" alt="Product 3"></a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="product-detail.html">Sản Phẩm 3</a>
+                                    <a href="#" data-toggle="modal" data-target="#productModal9">Cáp Ugreen USB-A to Type-C 1M - Mẫu 3</a>
                                 </h5>
-                                <h6>700,000 VND</h6>
-                                <p class="card-text">Mô tả ngắn gọn về sản phẩm 3.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                                <h6>540,000 VND</h6>
+                                <p class="card-text">Chính hãng Apple Việt Nam, bền bỉ theo thời gian</p>
                             </div>
                         </div>
                     </div>
@@ -176,7 +177,107 @@
             </div>
         </div>
     </div>
+    
 
+    <!-- Product Modals -->
+    <div class="modal fade" id="productModal7" tabindex="-1" role="dialog" aria-labelledby="productModalLabel7" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel7">Cáp Anker 322 USB-C to USB-L 0.9M Nylon - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/daysac/mau1.png" class="img-fluid" alt="Product 7">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>215,000 VND</h4>
+                            <p>Làm từ vật liệu nylon nên độ bền cao và đạt chứng nhận chất lượng an toàn</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Loại cáp sạc: Type-C to Lightning</li>
+                                <li>Chiều dài dây: 0.9 m</li>
+                                <li>Công suất sạc: 60W</li>
+                                <li>Tính năng: Siêu bền, Sạc nhanh, Power Delivery</li>
+                                <li>Tiện ích: Có thể uốn cong hơn 12.000 lần</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="7" data-name="Cáp Anker 322 USB-C to USB-L 0.9M Nylon - Mẫu 1" data-price="215000" data-image="../img/daysac/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal8" tabindex="-1" role="dialog" aria-labelledby="productModalLabel8" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel8">Dây sạc Type C - Lightning Apple - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/daysac/mau2.png" class="img-fluid" alt="Product 8">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>540,000 VND</h4>
+                            <p>Chính hãng Apple Việt Nam, bền bỉ theo thời gian</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Loại cáp sạc: Type-C to Lightning</li>
+                                <li>Chiều dài dây: 1m</li>
+                                <li>Công suất sạc: 87W</li>
+                                <li>Tính năng: Truyền dữ liệu tốc độ cao, Sạc nhanh</li>
+                                <li>Hãng sản xuất: Apple Chính hãng</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="8" data-name="Dây sạc Type C - Lightning Apple - Mẫu 2" data-price="540000" data-image="../img/daysac/mau2.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal9" tabindex="-1" role="dialog" aria-labelledby="productModalLabel9" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel9">Cáp Ugreen USB-A to Type-C 1M - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/daysac/mau3.png" class="img-fluid" alt="Product 9">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>540,000 VND</h4>
+                            <p>Dây sạc chất liệu siêu bền, nhỏ gọn, chống rối tốt.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Loại cáp sạc: USB-A to Type C</li>
+                                <li>Chiều dài dây: 1m</li>
+                                <li>Công suất sạc: 12W</li>
+                                <li>Tính năng: Chống rối, Sạc nhanh, Dùng được cho laptop</li>
+                                <li>Hãng sản xuất: Ugreen</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="9" data-name="Cáp Ugreen USB-A to Type-C 1M - Mẫu 3" data-price="150000" data-image="../img/daysac/mau3.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Footer Start -->

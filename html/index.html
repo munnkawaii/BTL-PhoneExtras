@@ -28,6 +28,8 @@
         });
     });
 </script>
+
+<script src = "../js/ModalDetailed.js"></script>
 <body>
     <!-- Header -->
     <header>
@@ -228,7 +230,7 @@
                             <h5 class="card-title">Sạc dự phòng Energizer 20.000mAh - Mẫu 1</h5>
                             <p class="card-text">Sạc dự phòng dung lượng cao, thiết kế nhỏ gọn.</p>
                             <p class="price">690,000 VND</p>
-                            <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#productModal1">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -239,7 +241,7 @@
                             <h5 class="card-title">Củ Sạc Apple iPhone 20w Type C  - Mẫu 2</h5>
                             <p class="card-text">Củ sạc nhanh, nhỏ gọn, tương thích với nhiều thiết bị.</p>
                             <p class="price">490,000 VND</p>
-                            <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#productModal5">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -250,7 +252,7 @@
                             <h5 class="card-title">Cáp Ugreen USB-A to Type-C 1M - Mẫu 3</h5>
                             <p class="card-text">Dây sạc chất liệu siêu bền, nhỏ gọn, chống rối tốt.</p>
                             <p class="price">150,000 VND</p>
-                            <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#productModal9">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -261,7 +263,7 @@
                             <h5 class="card-title">Tai nghe Bluetooth Apple AirPods 2 - Mẫu 1</h5>
                             <p class="card-text">Tai nghe Apple AirPods 2 chính hãng, âm thanh chất lượng cao.</p>
                             <p class="price">2,990,000 VND</p>
-                            <a href="product-detail.html" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#productModal10">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -421,6 +423,139 @@
         </div>
     </div>
     <!-- Footer End -->
+    <!-- Product Modals -->
+    <div class="modal fade" id="productModal1" tabindex="-1" role="dialog" aria-labelledby="productModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel1">Sạc dự phòng Energizer 20.000mAh - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/sacdp/mau1.jpg" class="img-fluid" alt="Product 1">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>690,000 VND</h4>
+                            <p>Sạc dự phòng dung lượng cao, thiết kế nhỏ gọn.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dung lượng: 20.000mAh</li>
+                                <li>Đầu ra: 2 cổng USB</li>
+                                <li>Đầu vào: Micro USB, USB-C</li>  
+                                <li>Kích thước: 150 x 70 x 20 mm</li>
+                                <li>Trọng lượng: 300g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="1" data-name="Sạc dự phòng Energizer 20.000mAh - Mẫu 1" data-price="690000" data-image="../img/sacdp/mau1.jpg">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal5" tabindex="-1" role="dialog" aria-labelledby="productModalLabel5" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel5">Củ Sạc Apple iPhone 20w Type C - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/cusac/mau2.jpg" class="img-fluid" alt="Product 5">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>490,000 VND</h4>
+                            <p>Củ sạc nhanh, nhỏ gọn, tương thích với nhiều thiết bị.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Cổng sạc ra: 1 x Type-C</li>
+                                <li>Sạc tối đa: 1 thiết bị</li>
+                                <li>Công suất sạc: 20W</li>
+                                <li>Tính năng: Sạc nhanh</li>
+                                <li>Trọng lượng: 360g</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="5" data-name="Củ Sạc Apple iPhone 20w Type C - Mẫu 2" data-price="490000" data-image="../img/cusac/mau2.jpg">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal9" tabindex="-1" role="dialog" aria-labelledby="productModalLabel9" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel9">Cáp Ugreen USB-A to Type-C 1M - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/daysac/mau3.png" class="img-fluid" alt="Product 9">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>540,000 VND</h4>
+                            <p>Dây sạc chất liệu siêu bền, nhỏ gọn, chống rối tốt.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Loại cáp sạc: USB-A to Type C</li>
+                                <li>Chiều dài dây: 1m</li>
+                                <li>Công suất sạc: 12W</li>
+                                <li>Tính năng: Chống rối, Sạc nhanh, Dùng được cho laptop</li>
+                                <li>Hãng sản xuất: Ugreen</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="9" data-name="Cáp Ugreen USB-A to Type-C 1M - Mẫu 3" data-price="150000" data-image="../img/daysac/mau3.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal10" tabindex="-1" role="dialog" aria-labelledby="productModalLabel10" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel10">Cáp Ugreen USB-A to Type-C 1M - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/tainghe/mau1.png" class="img-fluid" alt="Product 10">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>2,990,000 VND</h4>
+                            <p>Tai nghe Apple AirPods 2 chính hãng, âm thanh chất lượng cao.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Micro: có </li>
+                                <li>Bluetooth: 5.0 </li>
+                                <li>Dung lượng pin: Tai nghe: Dùng 5 giờ </li>
+                                <li>Cổng sạc: Lightning</li>
+                                <li>Thời gian sạc: 2 giờ</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="10" data-name="Tai nghe Bluetooth Apple AirPods 2 - Mẫu 1" data-price="2990000" data-image="../img/tainghe/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
         </body>
         </html>
         

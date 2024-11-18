@@ -9,6 +9,8 @@
     <link rel="icon" href="../img/logo/logopng.png" type="image/png">
     <script src="../js/jquery-3.6.1.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ModalDetailed.js"></script>
+
 </head>
 
 <style>
@@ -37,47 +39,6 @@
     }
 </style>
 
-<script>
-    $(document).ready(function() {
-        // Khi nhấp vào sản phẩm, hiển thị modal tương ứng
-        $('[data-toggle="modal"]').click(function() {
-            var targetModal = $(this).data('target');
-            $(targetModal).modal('show');
-        });
-
-        // Đóng modal khi nhấp vào nút đóng
-        $('.modal .close').click(function() {
-            $(this).closest('.modal').modal('hide');
-        });
-
-        // Hàm thêm sản phẩm vào giỏ hàng
-        function addToCart(product) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let existingProduct = cart.find(item => item.id === product.id);
-
-            if (existingProduct) {
-                existingProduct.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert("Đã thêm sản phẩm vào giỏ hàng!");
-        }
-
-        // Xử lý sự kiện click cho nút "Thêm vào giỏ hàng"
-        $('.add-to-cart').click(function (e) {
-            e.preventDefault();
-            const product = {
-                id: $(this).data('id'),
-                name: $(this).data('name'),
-                price: $(this).data('price'),
-                image: $(this).data('image'),
-            };
-            addToCart(product);
-        });
-    });
-</script>
 <body>
     <!-- Header -->
     <header>
@@ -159,14 +120,14 @@
                 <h4 class="my-4">Danh Mục Sản Phẩm</h4>
                 <div class="list-group">
                     <a href="../html/products.html" class="list-group-item">Tất cả sản phẩm</a>
-                    <a href="../html/products/powerbank.html" class="list-group-item">Sạc dự phòng</a>
-                    <a href="../html/products/charge.html" class="list-group-item">Củ sạc</a>
-                    <a href="../html/products/cable.html" class="list-group-item">Cáp sạc</a>
-                    <a href="../html/products/earphone.html" class="list-group-item">Tai nghe</a>
-                    <a href="../html/products/screenprotector.html" class="list-group-item">Cường lực</a>
-                    <a href="../html/products/case.html" class="list-group-item">Ốp lưng</a>
-                    <a href="../html/products/speaker.html" class="list-group-item">Loa</a>
-                    <a href="../html/products/more.html" class="list-group-item">Các sản phẩm khác</a>
+                    <a href="../html/powerbank.html" class="list-group-item">Sạc dự phòng</a>
+                    <a href="../html/charge.html" class="list-group-item">Củ sạc</a>
+                    <a href="../html/cable.html" class="list-group-item">Cáp sạc</a>
+                    <a href="../html/earphone.html" class="list-group-item">Tai nghe</a>
+                    <a href="../html/screenprotector.html" class="list-group-item">Cường lực</a>
+                    <a href="../html/case.html" class="list-group-item">Ốp lưng</a>
+                    <a href="../html/speaker.html" class="list-group-item">Loa</a>
+                    <a href="../html/more.html" class="list-group-item">Các sản phẩm khác</a>
                 </div>
             </div>
 
@@ -291,14 +252,167 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal10"><img class="card-img-top" src="../img/tainghe/mau1.png" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal10">Tai nghe Bluetooth Apple AirPods 2 - Mẫu 1</a>
+                                </h5>
+                                <h6>2,990,000 VND</h6>
+                                <p class="card-text">Tai nghe Apple AirPods 2 chính hãng, âm thanh chất lượng cao.</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal11"><img class="card-img-top" src="../img/tainghe/mau2.png" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal11">Tai nghe Apple Earpods cổng Lightning - Mẫu 2</a>
+                                </h5>
+                                <h6>500,000 VND</h6>
+                                <p class="card-text">Apple Earpods Lightning - Thiết kế hai đầu tai hình hạt đậu ôm trọn trong tai hiện đại</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal12"><img class="card-img-top" src="../img/Cuongluc/mau1.png" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal12">Kính cường lực chống va đập iPhone 14 Pro Max - Mẫu 1</a>
+                                </h5>
+                                <h6>390,000 VND</h6>
+                                <p class="card-text">Thiết kế miếng dán với góc cạnh liền mạch, mang lại tính thẩm mỹ cho điện thoại</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal13"><img class="card-img-top" src="../img/Cuongluc/mau2.png" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal13">Dán cường lực iPhone 15 Pro Max chống va đập T-Rex - Mẫu 2</a>
+                                </h5>
+                                <h6>235,000 VND</h6>
+                                <p class="card-text">Chất liệu cứng cáp, hạn chế tác động va đập, trầy xước hiệu quả</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal14"><img class="card-img-top" src="../img/oplung/mau1.png" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal14">Ốp lưng iPhone 15 Wiwu Pro Max - Mẫu 1</a>
+                                </h5>
+                                <h6>225,000 VND</h6>
+                                <p class="card-text">Mặt lưng nhựa cứng cáp, viền dễ tháo lắp, độ hoàn thiện cao và bảo vệ bền bỉ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal15"><img class="card-img-top" src="../img/oplung/mau2.png" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal15">Ốp lưng Samsung Galaxy S23 Likgus trong suốt - Mẫu 2</a>
+                                </h5>
+                                <h6>120,000 VND</h6>
+                                <p class="card-text">Ốp lưng có ngoại hình bắt mắt và hiệu quả bảo vệ tối ưu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal16"><img class="card-img-top" src="../img/loa/mau1.png" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal16">Loa Bluetooth Robot - Mẫu 1</a>
+                                </h5>
+                                <h6>180,000 VND</h6>
+                                <p class="card-text">Thiết kế nhỏ gọn, bền bỉ, âm thanh chất lượng cao</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal17"><img class="card-img-top" src="../img/loa/mau2.png" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal17">Loa Bluetooth Tronsmart T7 Mini - Mẫu 2</a>
+                                </h5>
+                                <h6>550,000 VND</h6>
+                                <p class="card-text">Thiết kế siêu nhỏ, tiện nghi, dễ dàng di chuyển, chống nước IPX7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal18"><img class="card-img-top" src="../img/loa/mau3.png" alt="Product 3"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal18">Loa Bluetooth Havit - Mẫu 3</a>
+                                </h5>
+                                <h6>260,000 VND</h6>
+                                <p class="card-text">Loa có kích thước nhỏ gọn, trọng lượng nhẹ dễ dàng mang theo trong balo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal19"><img class="card-img-top" src="../img/khac/mau1.png" alt="Product 1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal19">Gậy Selfie Stick Wiwu - Mẫu 1</a>
+                                </h5>
+                                <h6>270,000 VND</h6>
+                                <p class="card-text">Tích hợp đèn chiếu, hỗ trợ góc rộng</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal20"><img class="card-img-top" src="../img/khac/mau2.png" alt="Product 2"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal20">Giá đỡ điện thoại WiWu - Mẫu 2</a>
+                                </h5>
+                                <h6>162,000 VND</h6>
+                                <p class="card-text">Nhỏ gọn, phù hợp với nhiều mẫu điện thoại</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#" data-toggle="modal" data-target="#productModal21"><img class="card-img-top" src="../img/khac/mau3.png" alt="Product 3"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#" data-toggle="modal" data-target="#productModal21">Vòng đèn livestream Haiyuan 10 inch - Mẫu 3</a>
+                                </h5>
+                                <h6>240,000 VND</h6>
+                                <p class="card-text">Nhỏ gọn, công nghệ chiếu sáng hiện đại, hiệu quả</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
+    
 
     <!-- Product Modals -->
     <div class="modal fade" id="productModal1" tabindex="-1" role="dialog" aria-labelledby="productModalLabel1" aria-hidden="true">
@@ -598,8 +712,390 @@
         </div>
     </div>
 
+    <div class="modal fade" id="productModal10" tabindex="-1" role="dialog" aria-labelledby="productModalLabel10" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel10">Cáp Ugreen USB-A to Type-C 1M - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/tainghe/mau1.png" class="img-fluid" alt="Product 10">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>2,990,000 VND</h4>
+                            <p>Tai nghe Apple AirPods 2 chính hãng, âm thanh chất lượng cao.</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Micro: có </li>
+                                <li>Bluetooth: 5.0 </li>
+                                <li>Dung lượng pin: Tai nghe: Dùng 5 giờ </li>
+                                <li>Cổng sạc: Lightning</li>
+                                <li>Thời gian sạc: 2 giờ</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="10" data-name="Tai nghe Bluetooth Apple AirPods 2 - Mẫu 1" data-price="2990000" data-image="../img/tainghe/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal fade" id="productModal11" tabindex="-1" role="dialog" aria-labelledby="productModalLabel11" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel11">Tai nghe Apple Earpods cổng Lightning - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/tainghe/mau2.png" class="img-fluid" alt="Product 11">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>500,000 VND</h4>
+                            <p>Apple Earpods Lightning - Thiết kế hai đầu tai hình hạt đậu ôm trọn trong tai hiện đại</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Micro: có </li>
+                                <li>Phương thức điều khiển: Nút bấm vật lý</li>
+                                <li>Cổng kết nối: Lightning</li>
+                                <li>Hãng sản xuất: Apple Chính hãng</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="11" data-name="Tai nghe Apple Earpods cổng Lightning - Mẫu 2" data-price="500000" data-image="../img/tainghe/mau2.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal fade" id="productModal12" tabindex="-1" role="dialog" aria-labelledby="productModalLabel12" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel12">Kính cường lực chống va đập iPhone 14 Pro Max - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/Cuongluc/mau1.png" class="img-fluid" alt="Product 12">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>390,000 VND</h4>
+                            <p>Thiết kế miếng dán với góc cạnh liền mạch, mang lại tính thẩm mỹ cho điện thoại</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dòng sản phẩm: iPhone 14 Pro Max </li>
+                                <li>Loại miếng dán: Dán cường lực màn hình</li>
+                                <li>Hãng sản xuất: Mipow</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="12" data-name="Kính cường lực chống va đập iPhone 14 Pro Max - Mẫu 1" data-price="390000" data-image="../img/Cuongluc/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal13" tabindex="-1" role="dialog" aria-labelledby="productModalLabel13" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel13">Dán cường lực iPhone 15 Pro Max chống va đập T-Rex - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/Cuongluc/mau2.png" class="img-fluid" alt="Product 13">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>235,000 VND</h4>
+                            <p>Chất liệu cứng cáp, hạn chế tác động va đập, trầy xước hiệu quả</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dòng sản phẩm: iPhone 15 Pro Max </li>
+                                <li>Loại miếng dán: Dán cường lực màn hình</li>
+                                <li>Hãng sản xuất: T-rex</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="13" data-name="Dán cường lực iPhone 15 Pro Max chống va đập T-Rex - Mẫu 2" data-price="235000" data-image="../img/Cuongluc/mau2.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal14" tabindex="-1" role="dialog" aria-labelledby="productModalLabel14" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel14">Ốp lưng iPhone 15 Wiwu Pro Max - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/oplung/mau1.png" class="img-fluid" alt="Product 14">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>225,000 VND</h4>
+                            <p>Mặt lưng nhựa cứng cáp, viền dễ tháo lắp, độ hoàn thiện cao và bảo vệ bền bỉ</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dòng sản phẩm: iPhone 15 Pro Max </li>
+                                <li>Phân loại ốp: Chống sốc, Ốp trong</li>
+                                <li>Tính năng: Chống sốc, va đập, Chống trầy xước</li>
+                                <li>Hãng sản xuất: Wiwu </li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="14" data-name="Ốp lưng iPhone 15 Wiwu Pro Max - Mẫu 1" data-price="225000" data-image="../img/oplung/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal15" tabindex="-1" role="dialog" aria-labelledby="productModalLabel15" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel15">Ốp lưng Samsung Galaxy S23 Likgus trong suốt - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/oplung/mau2.png" class="img-fluid" alt="Product 15">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>120,000 VND</h4>
+                            <p>Nhỏ gọn, âm thanh chất lượng cao</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Dòng sản phẩm: iPhone 15 Pro Max </li>
+                                <li>Phân loại ốp: Ốp trong, ốp nhựa cứng</li>
+                                <li>Tính năng: Chống sốc, va đập, Chống ngả màu, Chống trầy xước</li>
+                                <li>Hãng sản xuất: Likgus </li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="15" data-name="Ốp lưng Samsung Galaxy S23 Likgus trong suốt - Mẫu 2" data-price="120000" data-image="../img/oplung/mau2.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal16" tabindex="-1" role="dialog" aria-labelledby="productModalLabel16" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel16">Loa Bluetooth Robot - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/loa/mau1.png" class="img-fluid" alt="Product 16">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>180,000 VND</h4>
+                            <p>Thiết kế nhỏ gọn, bền bỉ, âm thanh chất lượng cao</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Công nghệ âm thanh: Driver 45mm </li>
+                                <li>Công suất: 5W</li>
+                                <li>Thời lượng pin: 8 giờ</li>
+                                <li>Cổng kết nối: USB-A</li>
+                                <li>Khe thẻ nhớ Micro SD</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="16" data-name="Loa Bluetooth Robot - Mẫu 1" data-price="180000" data-image="../img/loa/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal17" tabindex="-1" role="dialog" aria-labelledby="productModalLabel17" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel17">Loa Bluetooth Tronsmart T7 Mini - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/loa/mau2.png" class="img-fluid" alt="Product 17">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>550,000 VND</h4>
+                            <p>Thiết kế siêu nhỏ, tiện nghi, dễ dàng di chuyển, chống nước IPX7</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Công suất: 15W</li>
+                                <li>Thời lượng pin: 18 giờ</li>
+                                <li>Cổng kết nối: Aux-in, Micro SD/TF Card</li>
+                                <li>Số loa kết nối cùng lúc: 2 loa</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="17" data-name="Loa Bluetooth Tronsmart T7 Mini - Mẫu 2" data-price="550000" data-image="../img/loa/mau2.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal18" tabindex="-1" role="dialog" aria-labelledby="productModalLabel18" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel18">Loa Bluetooth Havit - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/loa/mau3.png" class="img-fluid" alt="Product 18">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>260,000 VND</h4>
+                            <p>Loa có kích thước nhỏ gọn, trọng lượng nhẹ dễ dàng mang theo trong balo</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Công suất: 6W</li>
+                                <li>Thời lượng pin: 6 giờ</li>
+                                <li>Phạm vi kết nối: 10m</li>
+                                <li>Kết nối Bluetooth: 5.3</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="18" data-name="Loa Bluetooth Havit - Mẫu 3" data-price="260000" data-image="../img/loa/mau3.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal19" tabindex="-1" role="dialog" aria-labelledby="productModalLabel19" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel19">Gậy Selfie Stick Wiwu - Mẫu 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/khac/mau1.png" class="img-fluid" alt="Product 19">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>270,000 VND</h4>
+                            <p>Tích hợp đèn chiếu, hỗ trợ góc rộng</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Chất liệu: Hợp kim nhôm + ABS</li>
+                                <li>Tính năng khác: Bluetooth Selfie; Hỗ trợ chụp ngang dọc; Khả năng xoay xoay 360 độ</li>
+                                <li>Hãng sản xuất: Wiwu</li>
+                                <li>Tương thích: IOS & Android</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="19" data-name="Gậy Selfie Stick Wiwu - Mẫu 1" data-price="270000" data-image="../img/khac/mau1.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal20" tabindex="-1" role="dialog" aria-labelledby="productModalLabel20" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel20">Giá đỡ điện thoại WiWu - Mẫu 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/khac/mau2.png" class="img-fluid" alt="Product 20">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>162,000 VND</h4>
+                            <p>Nhỏ gọn, phù hợp với nhiều mẫu điện thoại</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Chất liệu: ABS</li>
+                                <li>Tính năng khác: Nghiêng nhiều góc độ khác nhau; Xoay 360 độ, điều chỉnh độ cao tùy ý; Mặt dưới phủ full lớp silicon giúp chống trượt; Phần pad kê trang bị tấm silicone hạn chế trầy xước; Có thể gấp lại siêu gọn</li>
+                                <li>Hãng sản xuất: Wiwu</li>
+                                <li>Tiện ích: Đỡ điện thoại, iPhone</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="20" data-name="Giá đỡ điện thoại WiWu - Mẫu 2" data-price="162000" data-image="../img/khac/mau2.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal21" tabindex="-1" role="dialog" aria-labelledby="productModalLabel21" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel20">Vòng đèn livestream Haiyuan 10 inch - Mẫu 3</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="../img/khac/mau3.png" class="img-fluid" alt="Product 21">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>240,000 VND</h4>
+                            <p>Nhỏ gọn, phù hợp với nhiều mẫu điện thoại</p>
+                            <p>Thông số kỹ thuật:</p>
+                            <ul>
+                                <li>Chất liệu: Kim loại + PC</li>
+                                <li>Tính năng khác: 3 cấp độ chiếu sáng: ánh sáng ấm, ánh sáng lạnh, ánh sáng mềm; 
+                                    ; Góc chiếu rộng lên đến 120°</li>
+                                <li>Kết nối: Điện thoại di động dưới 10 inch</li>
+                                <li>Công suất: Độ sáng tối đa: 3000 LM</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="21" data-name="Vòng đèn livestream Haiyuan 10 inch - Mẫu 3" data-price="240000" data-image="../img/khac/mau3.png">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
     <div id="footer" class="mt-5 w-100">
