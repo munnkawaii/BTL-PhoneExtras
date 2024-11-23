@@ -9,6 +9,7 @@
     <link rel="icon" href="../img/logo/logopng.png" type="image/png">
     <script src="../js/jquery-3.6.1.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ModalMethods.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -77,14 +78,78 @@
                             </tr>
                         </thead>
                         <tbody id="cart-items">
-                            <!-- Cart items will be dynamically added here -->
+                            <!-- Cart Items -->
                         </tbody>
                     </table>
-                    <button class="btn btn-primary">Thanh Toán</button>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>Tổng tiền: <span id="total-amount">0 VND</span></h4>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#checkoutModal">Thanh Toán</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Thông Tin Giao Hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="fullName">Họ và Tên</label>
+                            <input type="text" class="form-control" id="fullName" required placeholder="Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số Điện Thoại</label>
+                            <input type="tel" class="form-control" id="phone" required placeholder="0123456789">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa Chỉ</label>
+                            <input type="text" class="form-control" id="address" required placeholder="12 Nguyễn Văn Bảo, P4, Gò Vấp, TP.HCM">
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Ghi Chú</label>
+                            <textarea class="form-control" id="note" ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="discountCode">Mã Giảm Giá</label>
+                            <input type="text" class="form-control" id="discountCode" placeholder="Nhập mã giảm giá nếu có">
+                        </div>
+                        <div class="form-group">
+                            <label>Phương Thức Thanh Toán</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                <label class="form-check-label" for="cod">Thanh Toán Khi Giao Hàng</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="visa" value="visa">
+                                <label class="form-check-label" for="visa">Visa</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="vnpay" value="vnpay">
+                                <label class="form-check-label" for="vnpay">VNPay</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="momo" value="momo">
+                                <label class="form-check-label" for="momo">MoMo</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="confirmCheckout">Xác Nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
     <div id="footer" class="mt-5 w-100">
@@ -179,40 +244,5 @@
         </div>
     </div>
     <!-- Footer End -->
-
-    <script>
-        $(document).ready(function() {
-            // Hàm hiển thị giỏ hàng
-            function displayCart() {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                let cartItems = $('#cart-items');
-                cartItems.empty();
-
-                cart.forEach(item => {
-                    let total = item.price * item.quantity;
-                    cartItems.append(`
-                        <tr>
-                            <td><img src="${item.image}"  style="width: 50px; height: 50px;"> ${item.name}</td>
-                            <td>${item.quantity}</td>
-                            <td>${item.price} VND</td>
-                            <td>${total} VND</td>
-                            <td><button class="btn btn-danger btn-sm remove-item" data-id="${item.id}">Xóa</button></td>
-                        </tr>
-                    `);
-                });
-
-                // Xử lý sự kiện xóa sản phẩm
-                $('.remove-item').click(function() {
-                    let id = $(this).data('id');
-                    cart = cart.filter(item => item.id !== id);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    displayCart();
-                });
-            }
-
-            // Hiển thị giỏ hàng khi tải trang
-            displayCart();
-        });
-    </script>
 </body>
 </html>
